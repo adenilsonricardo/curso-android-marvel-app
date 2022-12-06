@@ -10,12 +10,12 @@ class AuthorizationInterceptor(
     private val publicKey: String,
     private val privateKey: String,
     private val calendar: Calendar
-): Interceptor {
+): Interceptor  {
 
     @Suppress("MagicNumber")
-    override fun intercept(chain: Interceptor.Chain): Response {
+    override fun intercept(chain:Interceptor.Chain): Response {
         val request = chain.request()
-        val requestUrl = request.url
+        val requestUrl = request.url()
 
         val ts = (calendar.timeInMillis /1000L).toString() // time in seconds
         val hash = "$ts$privateKey$publicKey".md5()
@@ -34,8 +34,8 @@ class AuthorizationInterceptor(
 
     @Suppress("MagicNumber")
     private fun String.md5(): String {
-        val nd = MessageDigest.getInstance("MD5")
-        return BigInteger(1,nd
+        val md = MessageDigest.getInstance("MD5")
+        return BigInteger(1,md
             .digest(toByteArray())).toString(16)
             .padStart(32,'0')
     }
