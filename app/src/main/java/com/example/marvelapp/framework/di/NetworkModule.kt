@@ -69,5 +69,4 @@ object NetworkModule {
             .build()
             .create(MarvelApi::class.java)
     }
-
 }

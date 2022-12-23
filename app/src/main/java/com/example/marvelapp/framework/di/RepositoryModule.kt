@@ -18,6 +18,7 @@ interface RepositoryModule {
     ): CharactersRepository
 
     @Binds
-    fun bindRemoteDataSource(dataSource: RetrofitCharactersDataSource
+    fun bindRemoteDataSource(
+        dataSource: RetrofitCharactersDataSource
     ): CharactersRemoteDataSource<DataWrapperResponse>
 }

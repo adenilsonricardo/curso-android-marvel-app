@@ -8,8 +8,10 @@ import com.example.core.domain.model.Character
 import com.example.marvelapp.R
 import com.example.marvelapp.databinding.ItemCharacterBinding
 
-class CharactersViewHolder(itemCharacterBinding: ItemCharacterBinding
+class CharactersViewHolder(
+    itemCharacterBinding: ItemCharacterBinding
 ) : RecyclerView.ViewHolder(itemCharacterBinding.root) {
+
     private val textName = itemCharacterBinding.textName
     private val imageCharacter = itemCharacterBinding.imageCharacter
 
